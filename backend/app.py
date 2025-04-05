@@ -3,9 +3,8 @@ from flask_cors import CORS
 import json
 
 app = Flask(__name__)
-CORS(app)  # allow frontend to call backend
+CORS(app)
 
-# Load recipe data
 with open('recipes.json', 'r') as f:
     recipes = json.load(f)
 
@@ -27,5 +26,5 @@ def search_recipes():
     return jsonify(result)
 
 if __name__ == '__main__':
-        app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
 
